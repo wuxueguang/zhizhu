@@ -12,15 +12,12 @@ import postcss from 'rollup-plugin-postcss';
 
 
 export default [{
-  input: 'src/main.js',
+  input: 'src/components/Dashboard/index.jsx',
   output: {
     name: 'BasicLayout',
     file: './dist/bundle.js',
     format: 'esm',
-    globals:{
-      react: 'React',
-      antd: 'antd',
-    },
+    globals:{},
   },
   plugins: [
     postcss({
@@ -51,5 +48,9 @@ export default [{
     // process.env.NODE_ENV === 'production' ? terser() : null,
     json(),
   ],
-  external: ['react', 'antd'],
+  external: [
+    'react', 'react-router-dom', 'antd',
+    'classnames', 'axios', 'querystring',
+    'mobx', 'mobx-react'
+  ],
 }];

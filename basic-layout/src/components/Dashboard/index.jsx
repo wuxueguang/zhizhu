@@ -6,14 +6,13 @@ import { observer } from 'mobx-react';
 import { Login, Logout, BasicLayout } from './components';
 import { userInfo } from '@/store';
 
-export const Context = React.createContext({userInfo: {}});
+export { userInfo };
 
 const Inner = props => {
   const { topRoutes, leftRoutes, content } = props;
   const location = useLocation();
 
   useEffect(() => {
-    console.log('--------------')
     userInfo.fetchLoginStatus();
   }, []);
 
@@ -29,13 +28,11 @@ const Inner = props => {
       );
     case true:
       return (
-        <Context.Provider value={{user: userInfo.user}}>
-          <BasicLayout
-            topRoutes={topRoutes}
-            leftRoutes={leftRoutes}
-            content={content}
-          />
-        </Context.Provider>
+        <BasicLayout
+          topRoutes={topRoutes}
+          leftRoutes={leftRoutes}
+          content={content}
+        />
       );
     }
   }

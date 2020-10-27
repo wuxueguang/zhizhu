@@ -6,20 +6,17 @@ import { Menu, Card, Space } from 'antd';
 import { RadiusBottomrightOutlined } from '@ant-design/icons';
 import { MailOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
-import { structRoutes, type } from '@/utils';
-import { rootPath } from '@/utils';
-
+import { structRoutes, type, rootPath } from '@/utils';
 import styles from './styles.scss';
 import { Breadcrumb, TopRightContent } from './components';
 
-const { SubMenu } = Menu;
 
 const createRoute = route => {
   if(route.children && route.children.some(({hideInMenu}) => !hideInMenu)){
     return route.hideInMenu || (
-      <SubMenu key={route.path} icon={<MailOutlined />} title={route.name}>
+      <Menu.SubMenu key={route.path} icon={<MailOutlined />} title={route.name}>
         {route.children.map(_route => createRoute(_route))}
-      </SubMenu>
+      </Menu.SubMenu>
     );
   }else{
     return route.hideInMenu || (
