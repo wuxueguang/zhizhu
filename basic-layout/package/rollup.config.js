@@ -5,29 +5,20 @@ import alias from '@rollup/plugin-alias';
 import babel from '@rollup/plugin-babel';
 import json from '@rollup/plugin-json';
 
-import { terser } from 'rollup-plugin-terser';
+// import { terser } from 'rollup-plugin-terser';
 // import nodePolyfills from 'rollup-plugin-node-polyfills';
 import builtins from 'rollup-plugin-node-builtins';
 import postcss from 'rollup-plugin-postcss';
 
-const output = {
-  name: 'ColorLog',
-  file: './dist/bundle.js',
-  format: 'cjs',
-  globals:{},
-  exports: 'default',
-};
 
 export default [{
-  input: 'src/main.js',
-  output: [{
-    ...output
-  }, {
-    ...output,
-    plugins: [
-      terser(),
-    ],
-  }],
+  input: 'src/components/Dashboard/index.jsx',
+  output: {
+    name: 'BasicLayout',
+    file: './dist/bundle.js',
+    format: 'esm',
+    globals:{},
+  },
   plugins: [
     postcss({
       modules: true,
@@ -46,14 +37,20 @@ export default [{
       babelrc: false,
       babelHelpers: 'bundled',
       exclude: ['node_modules/**'],
-      presets: ['@babel/preset-env'],
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      presets: [
+        '@babel/preset-env',
+        '@babel/preset-react',
+      ]
     }),
     commonjs(),   // must be after babel
     builtins(),
     // process.env.NODE_ENV === 'production' ? terser() : null,
     json(),
   ],
-  external: ['react', 'antd'],
-  
+  external: [
+    'react', 'react-router-dom', 'antd',
+    'classnames', 'axios', 'querystring',
+    'mobx', 'mobx-react'
+  ],
 }];

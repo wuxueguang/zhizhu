@@ -19,7 +19,7 @@ const output = {
 };
 
 export default [{
-  input: 'src/main.js',
+  input: ['src/main.js'],
   output: [{
     ...output
   }, {

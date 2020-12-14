@@ -17,14 +17,14 @@ const log = function(...args) {
 			console.log(...args);
 		}
 	}
-}
+};
 
 log.styleObj = {
 	color: '#0f0',
 	background: '#000',
 	fontWeight: 'bold',
 	fontSize: '12px'
-}
+};
 
 log.style = styleStr(log.styleObj);
 

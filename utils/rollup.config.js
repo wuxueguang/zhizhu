@@ -41,7 +41,7 @@ export default [{
   input: 'src/mobx.js',
   output: {
     name: 'utils-mobx',
-    file: './dist/mobx.js',
+    file: './mobx/index.js',
     format: 'cjs',
     globals:{},
   },

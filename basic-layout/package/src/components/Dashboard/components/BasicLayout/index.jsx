@@ -6,11 +6,10 @@ import { Menu, Card, Space } from 'antd';
 import { RadiusBottomrightOutlined } from '@ant-design/icons';
 import { MailOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
-import { structRoutes, type, rootPath } from '@/utils';
+import { structRoutes, type } from '@/utils';
+import { rootPath } from '@/utils';
 import styles from './styles.scss';
 import { Breadcrumb, TopRightContent } from './components';
-import { userInfo } from '../../../dist/bundle';
-
 
 const createRoute = route => {
   if(route.children && route.children.some(({hideInMenu}) => !hideInMenu)){
@@ -102,13 +101,10 @@ const C = props => {
         <div className={classNames(styles['right-content-container'])}>
           <Space direction="vertical" style={{width: '100%'}}>
             <Card>
-              <Breadcrumb routes={leftRoutes} needStruct />
+              <Breadcrumb routes={leftRoutes} needStruct/>
             </Card>
             <Card>
-              {type(content) === 'function' && content.call({
-                user: userInfo.user,
-                auth: [],
-              })}
+              {type(content) === 'function' && content.call()}
               {props.children}
             </Card>
           </Space>

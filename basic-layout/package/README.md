@@ -5,4 +5,3 @@ import logger from '@zhizhu/color-log';
 
 logger('默认样式黑底绿色');
 ```
-
