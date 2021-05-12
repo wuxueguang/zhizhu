@@ -51,7 +51,7 @@ export default [{
     }),
     commonjs(),   // must be after babel
     builtins(),
-    // process.env.NODE_ENV === 'production' ? terser() : null,
+    process.env.NODE_ENV === 'production' ? terser() : null,
     json(),
   ],
   external: ['react', 'antd'],

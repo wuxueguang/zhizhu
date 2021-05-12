@@ -1,9 +1,11 @@
 {
-  "name": "@zhizhu/make-port-free",
-  "version": "0.0.1",
+  "name": "@zhizhu/color-log",
+  "version": "0.0.4",
   "description": "",
   "main": "dist/bundle.js",
-  "scripts": {},
+  "scripts": {
+    "build": "export NODE_ENV=production & npx rollup -c"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/wuxueguang/zhizhu.git"
