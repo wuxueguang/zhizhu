@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { transformStyle } from '@/utils';
+import { transformStyle } from '../../utils';
 
 const C = props => {
   const [div, setDiv] = useState(null);

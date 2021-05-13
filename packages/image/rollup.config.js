@@ -11,18 +11,16 @@ import { terser } from 'rollup-plugin-terser';
 import builtins from 'rollup-plugin-node-builtins';
 import postcss from 'rollup-plugin-postcss';
 
-const output = {
-  name: '@zhizhu/image',
-  file: './dist/bundle.js',
-  format: 'esm',
-  globals:{},
-  exports: 'default',
-};
+import { dependencies } from './package.json';
 
 export default [{
   input: './src/index.jsx',
   output: [{
-    ...output
+    name: '@zhizhu/image',
+    file: './dist/bundle.js',
+    format: 'esm',
+    globals:{},
+    exports: 'default',
   }],
   plugins: [
     postcss({
@@ -39,22 +37,10 @@ export default [{
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),
     babel({
-      babelrc: false,
-      babelHelpers: 'bundled',
+      babelrc: true,
+      exclude: 'node_modules/**',
+      babelHelpers: ['runtime', 'bundled'][0],
       exclude: ['node_modules/**'],
-      presets: [
-        [
-          "@babel/preset-env",
-          {
-            "useBuiltIns": "usage",
-            // "debug": false,
-            "corejs": 3     // core-js 的版本
-          }
-        ],
-        [
-          "@babel/preset-react"
-        ]
-      ],
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),
     svg({base64: true}),
@@ -63,6 +49,5 @@ export default [{
     process.env.NODE_ENV === 'production' ? terser() : null,
     json(),
   ],
-  external: ['react', 'redux', 'redux', 'lodash', 'styled-components'],
-  
+  external: Object.keys(dependencies),
 }];

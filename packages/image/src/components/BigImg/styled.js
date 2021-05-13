@@ -22,6 +22,11 @@ export const BigImgBox = styled.div`
     ${loading};
   }
 
+  a{
+    cursor: pointer;
+    content: '';
+  }
+
   .operators{
     position: fixed;
     top: 10px;

@@ -26,8 +26,8 @@ const C = props => {
     const imgWid = +img.getAttribute('original-width');
     const imgHei = +img.getAttribute('original-height');
     const { width, height } = imgBoxRef.current.parentElement.getBoundingClientRect();
-    const boxWid = props.width || width;
-    const boxHei = props.height || height;
+    const boxWid = +props.width || width;
+    const boxHei = +props.height || height;
 
     if (imgWid / imgHei > boxWid / boxHei) {
       img.style.setProperty('width', `${boxWid}px`);
@@ -127,8 +127,8 @@ const C = props => {
 C.propTypes = {
   src: oneOfType([string, array]),
   set: array,
-  width: number,
-  height: number,
+  width: oneOfType([string, number]),
+  height: oneOfType([string, number]),
   bgColor: string,
   current: number,
   onChange: func,
