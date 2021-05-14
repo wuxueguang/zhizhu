@@ -12,6 +12,8 @@ const srcer = src => isArray(src) ? src : [src];
 const loading = document.createElement('i');
 loading.classList.add('loading');
 
+alert(1);
+
 const C = props => {
   const { src, set, width, height, bgColor, current = 0, onChange = Function() } = props;
 

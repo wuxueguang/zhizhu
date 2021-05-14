@@ -1,5 +1,5 @@
 {
-  "name": "@zhizhu/color-log",
+  "name": "@zhizhu/antdc",
   "version": "0.0.4",
   "description": "",
   "main": "dist/bundle.js",

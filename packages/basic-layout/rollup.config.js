@@ -49,8 +49,13 @@ export default [{
     json(),
   ],
   external: [
-    'react', 'react-router-dom', 'antd',
-    'classnames', 'axios', 'querystring',
-    'mobx', 'mobx-react'
+    'react',
+    'react-router-dom',
+    'antd',
+    'classnames',
+    'axios',
+    'querystring',
+    'mobx',
+    'mobx-react'
   ],
 }];
