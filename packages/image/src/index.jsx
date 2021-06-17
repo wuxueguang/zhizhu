@@ -12,9 +12,7 @@ const srcer = src => isArray(src) ? src : [src];
 const loading = document.createElement('i');
 loading.classList.add('loading');
 
-alert(1);
-
-const C = props => {
+const Image = props => {
   const { src, set, width, height, bgColor, current = 0, onChange = Function() } = props;
 
   const imgBoxRef = useRef();
@@ -25,8 +23,8 @@ const C = props => {
   const [showBig, setShowBig] = useState(false);
 
   const fixImgSize = img => {
-    const imgWid = +img.getAttribute('original-width');
-    const imgHei = +img.getAttribute('original-height');
+    const imgWid = img.naturalWidth;
+    const imgHei = img.naturalHeight;
     const { width, height } = imgBoxRef.current.parentElement.getBoundingClientRect();
     const boxWid = +props.width || width;
     const boxHei = +props.height || height;
@@ -126,7 +124,7 @@ const C = props => {
   );
 };
 
-C.propTypes = {
+Image.propTypes = {
   src: oneOfType([string, array]),
   set: array,
   width: oneOfType([string, number]),
@@ -136,6 +134,6 @@ C.propTypes = {
   onChange: func,
 };
 
-export default C;
+export default Image;
 
 
