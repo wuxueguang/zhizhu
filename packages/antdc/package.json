@@ -1,6 +1,6 @@
 {
   "name": "@zhizhu/antdc",
-  "version": "0.0.4",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/bundle.js",
   "scripts": {},
@@ -14,7 +14,6 @@
     "url": "https://github.com/wuxueguang/zhizhu/issues"
   },
   "homepage": "https://github.com/wuxueguang/zhizhu#readme",
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",

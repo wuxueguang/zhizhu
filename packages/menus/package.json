@@ -1,6 +1,6 @@
 {
   "name": "@zhizhu/menus",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "menus",
   "main": "dist/bundle.js",
   "scripts": {

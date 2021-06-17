@@ -1,6 +1,6 @@
 {
   "name": "@zhizhu/path-crumb",
-  "version": "0.0.4",
+  "version": "1.0.1",
   "description": "path-crumb",
   "main": "dist/bundle.js",
   "scripts": {
