@@ -8,5 +8,15 @@ npm version patch
 npm publish --access public
 ```
 
+# lerna 命令
+
+```
+lerna add lodash --scope=@zhizhu/test
+
+lerna add @zhizhu/utils --scope=@zhizhu/test
+
+
+```
+
 ## color-log
 
